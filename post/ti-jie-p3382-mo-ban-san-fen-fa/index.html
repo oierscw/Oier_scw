@@ -1,77 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://localhost:4000/</id>
-    <title>Lattle_Car  宋长纬的博客</title>
-    <updated>2020-02-28T03:55:24.688Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://localhost:4000/"/>
-    <link rel="self" href="https://localhost:4000/atom.xml"/>
-    <subtitle>长风破浪，经天纬地</subtitle>
-    <logo>https://localhost:4000/images/avatar.png</logo>
-    <icon>https://localhost:4000/favicon.ico</icon>
-    <rights>All rights reserved 2020, Lattle_Car  宋长纬的博客</rights>
-    <entry>
-        <title type="html"><![CDATA[题解 P1218 【[USACO1.5]特殊的质数肋骨 Superprime Rib】]]></title>
-        <id>https://localhost:4000/post/ti-jie-p1218-usaco15te-shu-de-zhi-shu-le-gu-superprime-rib/</id>
-        <link href="https://localhost:4000/post/ti-jie-p1218-usaco15te-shu-de-zhi-shu-le-gu-superprime-rib/">
-        </link>
-        <updated>2020-02-28T03:52:05.000Z</updated>
-        <content type="html"><![CDATA[<p>看到有人用<strong>八重循环</strong>做，还写了<strong>8个</strong>if语句</p>
-<p>其实没有那么麻烦，暴力又时也能体现出<strong>技术的美</strong></p>
-<p>记得小学的信奥老师讲：这种n重循环是<strong>玩不动暴力</strong>的</p>
-<p>我：我就玩暴力<strong>怎么了</strong></p>
-<p>可以用递归控制循环次数，不必一一判断了</p>
-<p>而且递归可以<strong>剪枝</strong>啊</p>
-<p>其他思路和别人基本一样，但真的不是dfs  qwq</p>
-<p>代码：</p>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-long long n;
-inline bool isprime(long long x)//质数判断
-{
-  if(x==1) return 0;
-  for(int i=2; i*i&lt;=x; i++)
-    if(x%i==0) return 0;
-  return 1;
-}
-inline void Make(int k,int now)//递归控制循环次数
-//看到那个inline了吗，非函数用不了这个qwq
-{
-  if(k==0)//如果循环到了层数就退出
-  {
-    cout&lt;&lt;now&lt;&lt;endl;
-    return;
-  }
-  for(int i=1; i&lt;10; i++)//循环填上数字
-    if(isprime(now*10+i))//如果符合条件就继续递归
-      Make(k-1,now*10+i);
-}
-int main()
-{
-  cin&gt;&gt;n;
-  Make(n,0);
-  return 0;
-}
-</code></pre>
-<p>qwq就是这样辣（484比dfs短好多，还没有压行呢，而且应该不是正解）</p>
-<p>（这是压行的）</p>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-long long n;
-inline bool isprime(long long x){ if(x==1) return 0; for(int i=2; i*i&lt;=x; i++) if(x%i==0) return 0; return 1; }
-inline void Make(int k,int now){ if(k==0) { cout&lt;&lt;now&lt;&lt;endl; return; } for(int i=1; i&lt;10; i++) if(isprime(now*10+i)) Make(k-1,now*10+i); }
-int main() { cin&gt;&gt;n; Make(n,0); return 0; }
-</code></pre>
-<p>各位886</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 P3382 【【模板】三分法】]]></title>
-        <id>https://localhost:4000/post/ti-jie-p3382-mo-ban-san-fen-fa/</id>
-        <link href="https://localhost:4000/post/ti-jie-p3382-mo-ban-san-fen-fa/">
-        </link>
-        <updated>2020-02-28T03:47:46.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="qwq这道题其实不用三分做的直接暴力地用二分做就行了qwq">qwq这道题其实不用三分做的，直接暴力地用二分做就行了qwq</h3>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>题解 P3382 【【模板】三分法】 | Lattle_Car  宋长纬的博客</title>
+<meta name="description" content="长风破浪，经天纬地">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://localhost:4000//favicon.ico?v=1582862122462">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://localhost:4000//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://localhost:4000/">Lattle_Car  宋长纬的博客</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>题解 P3382 【【模板】三分法】</h1>
+            <p class="article-meta">
+              2020-02-28
+              
+                <a href="https://localhost:4000/tag/7KJph2Gxw/" class="badge ">
+                  题解
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <h3 id="qwq这道题其实不用三分做的直接暴力地用二分做就行了qwq">qwq这道题其实不用三分做的，直接暴力地用二分做就行了qwq</h3>
 <p>但是在做二分前，要先了解两个概念：秦九韶公式和函数求导</p>
 <h4 id="先讲简单一点的秦九韶公式">先讲简单一点的秦九韶公式：</h4>
 <p>在数学上我觉得没啥大用处，但是在OI里可以吧O(n²)的多项式求值变成O(n)的方法，具体的公式是：</p>
@@ -136,24 +163,140 @@ int main()
 }
 </code></pre>
 <p>再见辣qwq</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ABOUT ME]]></title>
-        <id>https://localhost:4000/post/about-me/</id>
-        <link href="https://localhost:4000/post/about-me/">
-        </link>
-        <updated>2020-02-28T03:07:32.000Z</updated>
-        <content type="html"><![CDATA[<p>好吧……<br>
-我就是scw<br>
-洛谷账号Lattle_Car<br>
-就是宋长纬<br>
-2013.9.1 进入浙江省嵊州市鹿山小学教育集团鹿山校区<br>
-2019.8.27 进入浙江省绍兴市第一初级中学教育集团龙山校区<br>
-（两个学校的共同之处就是名字挺长记都记不住)<br>
-超级蒟蒻的一位Oier<br>
-现在在学OI和高数<br>
-嘤嘤嘤数学好玩嘤嘤嘤（逃）</p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://localhost:4000/post/about-me/">
+                <h3 class="post-title">
+                  ABOUT ME
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://localhost:4000//images/avatar.png?v=1582862122462" class="no-responsive avatar">
+    <div class="text-muted">长风破浪，经天纬地</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://localhost:4000/post/ti-jie-p1218-usaco15te-shu-de-zhi-shu-le-gu-superprime-rib/">题解 P1218 【[USACO1.5]特殊的质数肋骨 Superprime Rib】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://localhost:4000/post/ti-jie-p3382-mo-ban-san-fen-fa/">题解 P3382 【【模板】三分法】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://localhost:4000/post/about-me/">ABOUT ME</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://localhost:4000/tag/7KJph2Gxw/" class="badge success">
+          题解
+        </a>
+      
+        <a href="https://localhost:4000/tag/dsDW-8QL0/" class="badge ">
+          关于我自己
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://cdn.luogu.com.cn/upload/image_hosting/2su42zfw.png?x-oss-process=image/resize,m_lfit,h_170,w_225" target="_blank">Gridea</a> | <a class="rss" href="https://localhost:4000//atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
