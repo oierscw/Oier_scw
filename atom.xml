@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Oier_scw.github.io</id>
+    <title>Lattle_Car  宋长纬的博客</title>
+    <updated>2020-02-28T03:43:55.879Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Oier_scw.github.io"/>
+    <link rel="self" href="https://Oier_scw.github.io/atom.xml"/>
+    <subtitle>长风破浪，经天纬地</subtitle>
+    <logo>https://Oier_scw.github.io/images/avatar.png</logo>
+    <icon>https://Oier_scw.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Lattle_Car  宋长纬的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[ABOUT ME]]></title>
+        <id>https://Oier_scw.github.io/post/about-me/</id>
+        <link href="https://Oier_scw.github.io/post/about-me/">
+        </link>
+        <updated>2020-02-28T03:07:32.000Z</updated>
+        <content type="html"><![CDATA[<p>好吧……<br>
+我就是scw<br>
+洛谷账号Lattle_Car<br>
+就是宋长纬<br>
+2013.9.1 进入浙江省嵊州市鹿山小学教育集团鹿山校区<br>
+2019.8.27 进入浙江省绍兴市第一初级中学教育集团龙山校区<br>
+（两个学校的共同之处就是名字挺长记都记不住)<br>
+超级蒟蒻的一位Oier<br>
+现在在学OI和高数<br>
+嘤嘤嘤数学好玩嘤嘤嘤（逃）</p>
+]]></content>
+    </entry>
+</feed>
